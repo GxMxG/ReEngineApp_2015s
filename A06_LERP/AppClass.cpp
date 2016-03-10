@@ -1,4 +1,5 @@
 #include "AppClass.h"
+
 void AppClass::InitWindow(String a_sWindowName)
 {
 	super::InitWindow("Assignment  06 - LERP"); // Window Name
@@ -12,8 +13,28 @@ void AppClass::InitVariables(void)
 	m_v4ClearColor = vector4(REBLACK, 1); // Set the clear color to black
 
 	m_pMeshMngr->LoadModel("Sorted\\WallEye.bto", "WallEye");
-
+	
 	fDuration = 1.0f;
+
+	// populate the std::vector for all the points we will use
+	pointsInSpace.push_back(vector3(-4.0f, -2.0f, 5.0f));
+	pointsInSpace.push_back(vector3(1.0f, -2.0f, 5.0f));
+	pointsInSpace.push_back(vector3(-3.0f, -1.0f, 3.0f));
+	pointsInSpace.push_back(vector3(2.0f, -1.0f, 3.0f));
+	pointsInSpace.push_back(vector3(-2.0f, 0.0f, 0.0f));
+	pointsInSpace.push_back(vector3(3.0f, 0.0f, 0.0f));
+	pointsInSpace.push_back(vector3(-1.0f, 1.0f, -3.0f));
+	pointsInSpace.push_back(vector3(4.0f, 1.0f, -3.0f));
+	pointsInSpace.push_back(vector3(0.0f, 2.0f, -5.0f));
+	pointsInSpace.push_back(vector3(5.0f, 2.0f, -5.0f));
+	pointsInSpace.push_back(vector3(1.0f, 3.0f, -5.0f));
+
+	// create a sphere and it's matrix
+	m_pSphere = new PrimitiveClass();
+	m_m4Sphere = IDENTITY_M4;
+
+	// create a small red sphere
+	m_pSphere->GenerateSphere(0.1f, 5, RERED);
 }
 
 void AppClass::Update(void)
@@ -36,7 +57,49 @@ void AppClass::Update(void)
 #pragma endregion
 
 #pragma region Your Code goes here
-	m_pMeshMngr->SetModelMatrix(IDENTITY_M4, "WallEye");
+	// value to keep track of what path we are going to take
+	static uint indexer = 0;
+	static uint indexer2 = 1;
+
+	// check if we change the path
+	if (fRunTime > fDuration)
+	{
+		// increment the counters to change the path
+		indexer++;
+		indexer2++;
+
+		// if the first indexer is the last value of the vector, then the second indexer should be set to the first value of the vector
+		// if the indexer would go past the size of the vector, set it to 0
+		if (indexer+1 == pointsInSpace.size())
+		{
+			indexer2 = 0;
+		}
+		
+		if (indexer+1 > pointsInSpace.size())
+		{
+			indexer = 0;
+		}
+
+		fRunTime = 0;
+	}
+
+	vector3 v3Start(pointsInSpace[indexer]);
+	vector3 v3End(pointsInSpace[indexer2]);
+	vector3 v3Current;
+
+	float fPercent = MapValue(
+		static_cast<float>(fRunTime),	// value to change
+		0.0f,							// original min
+		static_cast<float>(fDuration),	// original max
+		0.0f,							// new min
+		1.0f);							// new max
+
+	v3Current = glm::lerp(v3Start, v3End, fPercent); // last variable goes from 0 - 1
+
+	m_m4Guy = glm::translate(v3Current);
+	m_pMeshMngr->SetModelMatrix(m_m4Guy, "WallEye");
+
+
 #pragma endregion
 
 #pragma region Does not need changes but feel free to change anything here
@@ -76,6 +139,19 @@ void AppClass::Display(void)
 	}
 	
 	m_pMeshMngr->Render(); //renders the render list
+
+	// store the projection matrix into a value
+	matrix4 projection = m_pCameraMngr->GetProjectionMatrix();
+
+	// store the view matrix into a value
+	matrix4 view = m_pCameraMngr->GetViewMatrix();
+
+	// draw the spheres at the point locations
+	for (uint i = 0; i < pointsInSpace.size(); i++)
+	{
+		m_m4Sphere = glm::translate(pointsInSpace[i]); // set the sphere to be at the point locations
+		m_pSphere->Render(projection, view, m_m4Sphere); // draw the spheres
+	}
 
 	m_pGLSystem->GLSwapBuffers(); //Swaps the OpenGL buffers
 }
