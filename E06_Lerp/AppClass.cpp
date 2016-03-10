@@ -13,11 +13,9 @@ void AppClass::InitVariables(void)
 		vector3(0.0f, 0.0f, 0.0f),
 		REAXISY);
 
-<<<<<<< HEAD
+
 	m_nObjects = 25;
-=======
-	m_nObjects = 10;
->>>>>>> origin/master
+
 
 	m_pMatrix = new matrix4[m_nObjects];
 	m_pSphere = new PrimitiveClass[m_nObjects];
@@ -36,12 +34,7 @@ void AppClass::InitVariables(void)
 									1.0f);							// new max
 		// lerp!
 		v3Current = glm::lerp(v3Start, v3End, fPercent); // last variable goes from 0 - 1
-
-<<<<<<< HEAD
-		m_pSphere[i].GenerateSphere(0.5f, 5, RERED);
-=======
 		m_pSphere[i].GenerateSphere(1.0f, 5, RERED);
->>>>>>> origin/master
 		m_pMatrix[i] = glm::translate(v3Current);
 	}
 	
