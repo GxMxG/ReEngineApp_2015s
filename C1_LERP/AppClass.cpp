@@ -49,12 +49,12 @@ void AppClass::Update(void)
 	vector3 v3Start(0.0f, 0.0f, 0.0f);
 	vector3 v3End(0.0f, 90.0f, 0.0f);
 	static float fDifference = 0.0f;
-	fDifference += 0.1f;
+	fDifference += 0.1f; 
 	fDifference = MapValue(static_cast<float>(fRunTime), 0.0f, 10.0f, 0.0f, 1.0f);
 
 	float fPosition = glm::lerp(v3Start, v3End, fDifference).y;
 
-	//mOrientation = glm::rotate(IDENTITY_M4, fPosition, vector3(1.0f, -1.0f, 1.0f));
+	mOrientation = glm::rotate(IDENTITY_M4, fPosition, vector3(1.0f, -1.0f, 1.0f));
 
 	m_pMeshMngr->SetModelMatrix(mOrientation, "Steve");
 	
