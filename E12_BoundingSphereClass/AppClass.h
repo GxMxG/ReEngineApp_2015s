@@ -19,12 +19,20 @@ class AppClass : public ReEngAppClass
 	PrimitiveClass* m_pSphere1 = nullptr;
 	vector3 m_v3Center1;
 	float m_fRadius1 = 0.0f;
+<<<<<<< HEAD
 	matrix4 m_4Steve;
+=======
+	matrix4 m_m4Steve;
+>>>>>>> Class_Engine/master
 
 	PrimitiveClass* m_pSphere2 = nullptr;
 	vector3 m_v3Center2;
 	float m_fRadius2 = 0.0f;
+<<<<<<< HEAD
 	matrix4 m_4Creeper;
+=======
+	matrix4 m_m4Creeper;
+>>>>>>> Class_Engine/master
 
 public:
 	typedef ReEngAppClass super;
