@@ -120,25 +120,10 @@ void AppClass::Display(void)
 {
 	//clear the screen
 	ClearScreen();
-
 	//Render the grid based on the camera's mode:
-	switch (m_pCameraMngr->GetCameraMode())
-	{
-	default: //Perspective
-		m_pMeshMngr->AddGridToQueue(1.0f, REAXIS::XY); //renders the XY grid with a 100% scale
-		break;
-	case CAMERAMODE::CAMROTHOX:
-		m_pMeshMngr->AddGridToQueue(1.0f, REAXIS::YZ, RERED * 0.75f); //renders the YZ grid with a 100% scale
-		break;
-	case CAMERAMODE::CAMROTHOY:
-		m_pMeshMngr->AddGridToQueue(1.0f, REAXIS::XZ, REGREEN * 0.75f); //renders the XZ grid with a 100% scale
-		break;
-	case CAMERAMODE::CAMROTHOZ:
-		m_pMeshMngr->AddGridToQueue(1.0f, REAXIS::XY, REBLUE * 0.75f); //renders the XY grid with a 100% scale
-		break;
-	}
-	
+	m_pMeshMngr->AddGridToRenderListBasedOnCamera(m_pCameraMngr->GetCameraMode());
 	m_pMeshMngr->Render(); //renders the render list
+<<<<<<< HEAD
 
 	// store the projection matrix into a value
 	matrix4 projection = m_pCameraMngr->GetProjectionMatrix();
@@ -153,6 +138,9 @@ void AppClass::Display(void)
 		m_pSphere->Render(projection, view, m_m4Sphere); // draw the spheres
 	}
 
+=======
+	m_pMeshMngr->ResetRenderList(); //Reset the Render list after render
+>>>>>>> 8f580f7f9fede253430f22e409d3eac4ead431c5
 	m_pGLSystem->GLSwapBuffers(); //Swaps the OpenGL buffers
 }
 
