@@ -105,6 +105,7 @@ xcopy "$(SolutionDir)include\RE\Shaders" "$(SolutionDir)_Binary\Shaders" /y</Com
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Greg%27s Cloned Engine\E12_BoundingSphereClass\MyBoundingCubeClass.h" />
     <ClInclude Include="..\res\Resource.h" />
     <ClInclude Include="AppClass.h" />
     <ClInclude Include="MyBoundingSphereClass.h" />
@@ -113,6 +114,7 @@ xcopy "$(SolutionDir)include\RE\Shaders" "$(SolutionDir)_Binary\Shaders" /y</Com
     <ResourceCompile Include="..\res\BTO.rc" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Greg%27s Cloned Engine\E12_BoundingSphereClass\MyBoundingCubeClass.cpp" />
     <ClCompile Include="AppClass.cpp" />
     <ClCompile Include="AppClassControls.cpp" />
     <ClCompile Include="Main.cpp" />

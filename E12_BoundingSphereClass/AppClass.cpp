@@ -18,6 +18,12 @@ void AppClass::InitVariables(void)
 	//Load Models
 	m_pMeshMngr->LoadModel("Minecraft\\Steve.obj", "Steve");
 	m_pMeshMngr->LoadModel("Minecraft\\Creeper.obj", "Creeper");
+<<<<<<< HEAD
+=======
+
+	m_pBox1 = new MyBoundingCubeClass(m_pMeshMngr->GetVertexList("Steve"));
+	m_pBox2 = new MyBoundingCubeClass(m_pMeshMngr->GetVertexList("Creeper"));
+>>>>>>> dcacc1e804d49ec9acff5eee2668064d6adc3e8d
 }
 
 void AppClass::Update(void)
@@ -38,11 +44,89 @@ void AppClass::Update(void)
 	m_pMeshMngr->SetModelMatrix(glm::translate(m_v3O1) * ToMatrix4(m_qArcBall), "Steve");
 	m_pMeshMngr->SetModelMatrix(glm::translate(m_v3O2), "Creeper");
 
+<<<<<<< HEAD
+=======
+	m_pBox1->SetModelMatrix(m_pMeshMngr->GetModelMatrix("Steve"));
+	m_pBox2->SetModelMatrix(m_pMeshMngr->GetModelMatrix("Creeper"));
+
+	bool isColliding = m_pBox1->IsColliding(m_pBox2);
+
+	if (isColliding)
+	{
+		m_pMeshMngr->AddSphereToQueue(
+			glm::translate(vector3(m_pBox1->GetCenterG())) *
+			glm::scale(vector3(m_pBox1->GetRadius()) * 2.0f), RERED, WIRE);
+		m_pMeshMngr->AddSphereToQueue(glm::translate(vector3(m_pBox2->GetCenterG()))  *
+			glm::scale(vector3(m_pBox2->GetRadius()) * 2.0f), RERED, WIRE);
+	}
+	else
+	{
+		m_pMeshMngr->AddSphereToQueue(
+			glm::translate(vector3(m_pBox1->GetCenterG())) *
+			glm::scale(vector3(m_pBox1->GetRadius()) * 2.0f), REGREEN, WIRE);
+		m_pMeshMngr->AddSphereToQueue(glm::translate(vector3(m_pBox2->GetCenterG()))  *
+			glm::scale(vector3(m_pBox2->GetRadius()) * 2.0f), REGREEN, WIRE);
+	}
+	
+>>>>>>> dcacc1e804d49ec9acff5eee2668064d6adc3e8d
 	//Adds all loaded instance to the render list
 	m_pMeshMngr->AddInstanceToRenderList("ALL");
 
+	matrix4 m4Projection = m_pCameraMngr->GetProjectionMatrix();
+	matrix4 m4View = m_pCameraMngr->GetViewMatrix();
+
+	m_m4Steve =
+		m_pMeshMngr->GetModelMatrix("Steve") * 
+		glm::translate(m_v3Center1);
+	//m_pSphere1->Render(m4Projection, m4View, m4Model);
+	m_pMeshMngr->AddSphereToQueue(m_m4Steve * glm::scale(vector3(m_fRadius1 * 2.0f)), RERED, WIRE);
+
+	m_m4Creeper =
+		m_pMeshMngr->GetModelMatrix("Creeper") * 
+		glm::translate(m_v3Center2);
+	//m_pSphere2->Render(m4Projection, m4View, m4Model);
+	m_pMeshMngr->AddSphereToQueue(m_m4Creeper * glm::scale(vector3(m_fRadius2 * 2.0f)), RERED, WIRE);
+
 	//Indicate the FPS
 	int nFPS = m_pSystem->GetFPS();
+<<<<<<< HEAD
+=======
+
+	vector3 v3Center_1_Golbal = vector3(m_m4Steve * vector4(m_v3Center1, 1.0f));
+	vector3 v3Center_2_Golbal = vector3(m_m4Creeper * vector4(m_v3Center2, 1.0f));
+
+	float fDistanceCenters = glm::distance(v3Center_1_Golbal, v3Center_2_Golbal);
+
+	bool bAreColliding = false;
+	if (fDistanceCenters < m_fRadius1 + m_fRadius2) { bAreColliding = true;	}
+
+	//Collision check goes here
+	m_pMeshMngr->Print("x:" + std::to_string(v3Center_1_Golbal.x ) + " ", RERED);
+	m_pMeshMngr->Print("y:" + std::to_string(v3Center_1_Golbal.y) + " ", RERED);
+	m_pMeshMngr->Print("z:" + std::to_string(v3Center_1_Golbal.z) + " ", RERED);
+
+	m_m4Steve = m_pMeshMngr->GetModelMatrix("Steve") * glm::translate(m_v3Center1);
+
+	if(bAreColliding)
+		m_pMeshMngr->AddCubeToQueue(m_m4Steve * glm::scale(vector3(m_fRadius1 * 2.0f)), RERED, WIRE);
+	else
+		m_pMeshMngr->AddCubeToQueue(m_m4Steve * glm::scale(vector3(m_fRadius1 * 2.0f)), REGREEN, WIRE);
+
+	m_m4Creeper = m_pMeshMngr->GetModelMatrix("Creeper") * glm::translate(m_v3Center2);
+	if (bAreColliding)
+		m_pMeshMngr->AddCubeToQueue(m_m4Creeper * glm::scale(vector3(m_fRadius2 * 2.0f)), RERED, WIRE);
+	else
+		m_pMeshMngr->AddCubeToQueue(m_m4Creeper * glm::scale(vector3(m_fRadius2 * 2.0f)), REGREEN, WIRE);
+
+	/*
+	m_pMeshMngr->Print("x:" + std::to_string(v3Temp.x ) + " ", RERED);
+	m_pMeshMngr->Print("y:" + std::to_string(v3Temp.y) + " ", RERED);
+	m_pMeshMngr->Print("z:" + std::to_string(v3Temp.z) + " ", RERED);
+	*/
+
+	m_pMeshMngr->PrintLine("");
+
+>>>>>>> dcacc1e804d49ec9acff5eee2668064d6adc3e8d
 	//print info into the console
 	printf("FPS: %d            \r", nFPS);//print the Frames per Second
 	//Print info on the screen
@@ -64,5 +148,20 @@ void AppClass::Display(void)
 
 void AppClass::Release(void)
 {
+<<<<<<< HEAD
+=======
+	if (m_pBox1 != nullptr)
+	{
+		delete m_pBox1;
+		m_pBox1 = nullptr;
+
+	}
+	if (m_pBox2 != nullptr)
+	{
+		delete m_pBox2;
+		m_pBox2 = nullptr;
+
+	}
+>>>>>>> dcacc1e804d49ec9acff5eee2668064d6adc3e8d
 	super::Release(); //release the memory of the inherited fields
 }

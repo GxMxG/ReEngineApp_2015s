@@ -91,8 +91,14 @@ public:
 	*/
 	bool IsColliding(MyBoundingCubeClass* const a_pOther);
 
+<<<<<<< HEAD
 	vector3 GetSize(void);
 	matrix4 GetModelMatrix(void);
+=======
+	matrix4 GetModelMatrix(void);
+
+	vector3 GetSize(void);
+>>>>>>> dcacc1e804d49ec9acff5eee2668064d6adc3e8d
 	
 private:
 	/*
