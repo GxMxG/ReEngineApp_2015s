@@ -1,7 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
+<<<<<<< HEAD
 VisualStudioVersion = 14.0.24720.0
+=======
+VisualStudioVersion = 14.0.25123.0
+>>>>>>> 00680e2f8635d9f9f2a635f595b7b37a88d4d800
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ModelViewer", "ModelViewer\ModelViewer_VS15.vcxproj", "{FB51C0AB-6E10-4DEB-9D27-A3C31251A36D}"
 EndProject
@@ -23,7 +27,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "01_Basics", "01_Basics\01_B
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "02_Inheriting", "02_Inheriting\02_Inheriting.vcxproj", "{F1EDF2C3-8663-42FF-89D7-D0C4857D4358}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "03_SFML_Input", "03_SFML_Input\03_SFML_Input.vcxproj", "{1EA67B6E-CAF1-4F2A-8FB5-99B5D30E3004}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "03_Input", "03_SFML_Input\03_SFML_Input.vcxproj", "{1EA67B6E-CAF1-4F2A-8FB5-99B5D30E3004}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "04_MeshRendering", "04_MeshRendering\04_MeshRendering.vcxproj", "{D04CA8CD-8C31-4F09-A363-33BFC486C26F}"
 EndProject
@@ -76,6 +80,10 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "A05s_Transformations_DEMO", "A05s_Transformations\A05s_Transformations.vcxproj", "{731BEF6C-42D8-41D5-9C26-FCC908241B92}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "T01A_Exam_Solution", "T01-As\T01-As.vcxproj", "{AA18B089-83AC-4904-8600-CD68E61EDC26}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "08_Audio", "08_Audio\08_Audio.vcxproj", "{D50EA787-1AD4-44AC-A230-3304FFB04F82}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "E15_MyEntityManager", "E15_MyEntityManager\E15_MyEntityManager.vcxproj", "{0C037D84-CF9B-4149-AAAB-8317346179DF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -231,6 +239,14 @@ Global
 		{AA18B089-83AC-4904-8600-CD68E61EDC26}.Debug|x86.Build.0 = Debug|Win32
 		{AA18B089-83AC-4904-8600-CD68E61EDC26}.Release|x86.ActiveCfg = Release|Win32
 		{AA18B089-83AC-4904-8600-CD68E61EDC26}.Release|x86.Build.0 = Release|Win32
+		{D50EA787-1AD4-44AC-A230-3304FFB04F82}.Debug|x86.ActiveCfg = Debug|Win32
+		{D50EA787-1AD4-44AC-A230-3304FFB04F82}.Debug|x86.Build.0 = Debug|Win32
+		{D50EA787-1AD4-44AC-A230-3304FFB04F82}.Release|x86.ActiveCfg = Release|Win32
+		{D50EA787-1AD4-44AC-A230-3304FFB04F82}.Release|x86.Build.0 = Release|Win32
+		{0C037D84-CF9B-4149-AAAB-8317346179DF}.Debug|x86.ActiveCfg = Debug|Win32
+		{0C037D84-CF9B-4149-AAAB-8317346179DF}.Debug|x86.Build.0 = Debug|Win32
+		{0C037D84-CF9B-4149-AAAB-8317346179DF}.Release|x86.ActiveCfg = Release|Win32
+		{0C037D84-CF9B-4149-AAAB-8317346179DF}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
