@@ -27,63 +27,39 @@ void AppClass::ProcessKeyboard(void)
 	float fDelta = 0.1f;
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
 	{
-<<<<<<< HEAD:C1_LERP/AppClassControls.cpp
-		if (!bModifier) {
-			m_v3Rotation += vector3(1.0f, 0.0f, 0.0f);
-			m_m4Orientation *= glm::rotate(IDENTITY_M4, 1.0f, REAXISX);
-		}
-		else
-			m_v3Rotation += vector3(-1.0f, 0.0f, 0.0f);
-=======
 		matrix4 m4Pallet = m_pPalletL->GetModelMatrix();
 		m_pPalletL->SetModelMatrix(m4Pallet * glm::translate(vector3(0.0f, fDelta, 0.0f)));
 		if (m_pPalletL->IsColliding(m_pBoxT))
 			m_pPalletL->SetModelMatrix(m4Pallet);
->>>>>>> 8f580f7f9fede253430f22e409d3eac4ead431c5:E14_CollisionResolution/AppClassControls.cpp
+
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
 	{
-<<<<<<< HEAD:C1_LERP/AppClassControls.cpp
-		if (!bModifier) {
-			m_v3Rotation += vector3( 0.0f, 1.0f, 0.0f);
-			m_m4Orientation *= glm::rotate(IDENTITY_M4, 1.0f, REAXISY);
-		}
-		else
-			m_v3Rotation += vector3( 0.0f,-1.0f, 0.0f);
-=======
 		matrix4 m4Pallet = m_pPalletL->GetModelMatrix();
 		m_pPalletL->SetModelMatrix(m4Pallet * glm::translate(vector3(0.0f,-fDelta, 0.0f)));
 		if (m_pPalletL->IsColliding(m_pBoxB))
 			m_pPalletL->SetModelMatrix(m4Pallet);
->>>>>>> 8f580f7f9fede253430f22e409d3eac4ead431c5:E14_CollisionResolution/AppClassControls.cpp
+
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::O))
 	{
-<<<<<<< HEAD:C1_LERP/AppClassControls.cpp
-		if (!bModifier){
-			m_v3Rotation += vector3(0.0f, 0.0f, 1.0f);
-			m_m4Orientation *= glm::rotate(IDENTITY_M4, 1.0f, REAXISY);
-		}
-		else
-			m_v3Rotation += vector3(0.0f, 0.0f,-1.0f);
-=======
 		matrix4 m4Pallet = m_pPalletR->GetModelMatrix();
 		m_pPalletR->SetModelMatrix(m4Pallet * glm::translate(vector3(0.0f, fDelta, 0.0f)));
 		if (m_pPalletR->IsColliding(m_pBoxT))
 			m_pPalletR->SetModelMatrix(m4Pallet);
->>>>>>> 8f580f7f9fede253430f22e409d3eac4ead431c5:E14_CollisionResolution/AppClassControls.cpp
+
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::L))
 	{
-<<<<<<< HEAD:C1_LERP/AppClassControls.cpp
+
 		//m_v3Rotation = vector3(0.0f, 0.0f, 0.0f);
 		//m_m4Orientation = IDENTITY_M4;
-=======
+
 		matrix4 m4Pallet = m_pPalletR->GetModelMatrix();
 		m_pPalletR->SetModelMatrix(m4Pallet * glm::translate(vector3(0.0f, -fDelta, 0.0f)));
 		if (m_pPalletR->IsColliding(m_pBoxB))
 			m_pPalletR->SetModelMatrix(m4Pallet);
->>>>>>> 8f580f7f9fede253430f22e409d3eac4ead431c5:E14_CollisionResolution/AppClassControls.cpp
+
 	}
 #pragma endregion
 
