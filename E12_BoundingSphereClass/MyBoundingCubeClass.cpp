@@ -54,17 +54,29 @@ MyBoundingCubeClass::MyBoundingCubeClass(std::vector<vector3> a_lVectorList)
 	m_v3Center = (m_v3Max + m_v3Min) / 2.0f;
 	m_fRadius = glm::distance(m_v3Center, m_v3Max);
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+	m_v3Size.x = glm::distance(vector3(m_v3Min.x, 0.0, 0.0), vector3(m_v3Max.x, 0.0, 0.0));
+	m_v3Size.y = glm::distance(vector3(0.0, m_v3Min.y, 0.0), vector3(0.0, m_v3Max.y, 0.0));
+	m_v3Size.z = glm::distance(vector3(0.0f, 0.0, m_v3Min.z), vector3(0.0, 0.0, m_v3Max.z));
+}
+=======
+>>>>>>> bbf1112fc95df3dbcdefd2839e8b42d9fec553c4
 	m_v3Size.x = glm::distance(vector3(m_v3Min.x, 0.0f, 0.0f), vector3(m_v3Max.x, 0.0f, 0.0f));
 	m_v3Size.y = glm::distance(vector3(0.0f, m_v3Min.y, 0.0f), vector3(0.0f, m_v3Max.y, 0.0f));
 	m_v3Size.z = glm::distance(vector3(0.0f, 0.0f, m_v3Min.z), vector3(0.0f, 0.0f, m_v3Max.z));
 }
 
+<<<<<<< HEAD
 =======
 	m_v3Size.x = glm::distance(vector3(m_v3Min.x, 0.0, 0.0), vector3(m_v3Max.x, 0.0, 0.0));
 	m_v3Size.y = glm::distance(vector3(0.0, m_v3Min.y, 0.0), vector3(0.0, m_v3Max.y, 0.0));
 	m_v3Size.z = glm::distance(vector3(0.0f, 0.0, m_v3Min.z), vector3(0.0, 0.0, m_v3Max.z));
 }
 >>>>>>> 8f580f7f9fede253430f22e409d3eac4ead431c5
+=======
+>>>>>>> dcacc1e804d49ec9acff5eee2668064d6adc3e8d
+>>>>>>> bbf1112fc95df3dbcdefd2839e8b42d9fec553c4
 MyBoundingCubeClass::MyBoundingCubeClass(MyBoundingCubeClass const& other)
 {
 	m_fRadius = other.m_fRadius;
@@ -75,9 +87,15 @@ MyBoundingCubeClass::MyBoundingCubeClass(MyBoundingCubeClass const& other)
 	m_v3Max = other.m_v3Max;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> 8f580f7f9fede253430f22e409d3eac4ead431c5
+=======
+=======
+
+>>>>>>> dcacc1e804d49ec9acff5eee2668064d6adc3e8d
+>>>>>>> bbf1112fc95df3dbcdefd2839e8b42d9fec553c4
 MyBoundingCubeClass& MyBoundingCubeClass::operator=(MyBoundingCubeClass const& other)
 {
 	if(this != &other)
@@ -90,19 +108,32 @@ MyBoundingCubeClass& MyBoundingCubeClass::operator=(MyBoundingCubeClass const& o
 	return *this;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> 8f580f7f9fede253430f22e409d3eac4ead431c5
+=======
+=======
+
+>>>>>>> dcacc1e804d49ec9acff5eee2668064d6adc3e8d
+>>>>>>> bbf1112fc95df3dbcdefd2839e8b42d9fec553c4
 MyBoundingCubeClass::~MyBoundingCubeClass(){Release();};
 //Accessors
 void MyBoundingCubeClass::SetModelMatrix(matrix4 a_m4ToWorld){ m_m4ToWorld = a_m4ToWorld; }
 vector3 MyBoundingCubeClass::GetCenterG(void){ return vector3(m_m4ToWorld * vector4(m_v3Center, 1.0f)); }
 float MyBoundingCubeClass::GetRadius(void) { return m_fRadius; }
 <<<<<<< HEAD
+<<<<<<< HEAD
 vector3 MyBoundingCubeClass::GetSize(void) { return m_v3Size; }
 =======
 vector3 MyBoundingCubeClass::GetSize(void) { return m_v3Size; };
 >>>>>>> 8f580f7f9fede253430f22e409d3eac4ead431c5
+=======
+vector3 MyBoundingCubeClass::GetSize(void) { return m_v3Size; };
+=======
+vector3 MyBoundingCubeClass::GetSize(void) { return m_v3Size; }
+>>>>>>> dcacc1e804d49ec9acff5eee2668064d6adc3e8d
+>>>>>>> bbf1112fc95df3dbcdefd2839e8b42d9fec553c4
 //--- Non Standard Singleton Methods
 bool MyBoundingCubeClass::IsColliding(MyBoundingCubeClass* const a_pOther)
 {
@@ -114,6 +145,7 @@ bool MyBoundingCubeClass::IsColliding(MyBoundingCubeClass* const a_pOther)
 	vector3 vMin1 = vector3(m_m4ToWorld * vector4(m_v3Min, 1.0f));
 	vector3 vMax1 = vector3(m_m4ToWorld * vector4(m_v3Max, 1.0f));
 	vector3 vMin2 = vector3(a_pOther->m_m4ToWorld * vector4(a_pOther->m_v3Min, 1.0f));
+<<<<<<< HEAD
 <<<<<<< HEAD
 	vector3 vMax2 = vector3(a_pOther->m_m4ToWorld * vector4(a_pOther->m_v3Min, 1.0f));
 
@@ -128,6 +160,8 @@ bool MyBoundingCubeClass::IsColliding(MyBoundingCubeClass* const a_pOther)
 
 	return (glm::distance(v3Temp, v3Temp1) < m_fRadius + a_pOther->m_fRadius);
 =======
+=======
+>>>>>>> bbf1112fc95df3dbcdefd2839e8b42d9fec553c4
 	vector3 vMax2 = vector3(a_pOther->m_m4ToWorld * vector4(a_pOther->m_v3Max, 1.0f));
 
 	//Check for X
@@ -149,6 +183,23 @@ bool MyBoundingCubeClass::IsColliding(MyBoundingCubeClass* const a_pOther)
 		bAreColliding = false;
 
 	return bAreColliding;
+<<<<<<< HEAD
 >>>>>>> 8f580f7f9fede253430f22e409d3eac4ead431c5
+=======
+=======
+	vector3 vMax2 = vector3(a_pOther->m_m4ToWorld * vector4(a_pOther->m_v3Min, 1.0f));
+
+	if (vMax1.x < vMin2.x || vMin1.x > vMax2.x)
+	{bAreColliding = false;}
+
+	if (vMax1.y < vMin2.y || vMin1.y > vMax2.y)
+	{bAreColliding = false;}
+
+	if (vMax1.z < vMin2.z || vMin1.z > vMax2.z)
+	{bAreColliding = false;}
+
+	return (glm::distance(v3Temp, v3Temp1) < m_fRadius + a_pOther->m_fRadius);
+>>>>>>> dcacc1e804d49ec9acff5eee2668064d6adc3e8d
+>>>>>>> bbf1112fc95df3dbcdefd2839e8b42d9fec553c4
 }
 matrix4 MyBoundingCubeClass::GetModelMatrix(void) { return m_m4ToWorld; }

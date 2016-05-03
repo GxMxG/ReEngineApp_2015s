@@ -31,7 +31,10 @@ void AppClass::ProcessKeyboard(void)
 		m_pPalletL->SetModelMatrix(m4Pallet * glm::translate(vector3(0.0f, fDelta, 0.0f)));
 		if (m_pPalletL->IsColliding(m_pBoxT))
 			m_pPalletL->SetModelMatrix(m4Pallet);
+<<<<<<< HEAD
 
+=======
+>>>>>>> bbf1112fc95df3dbcdefd2839e8b42d9fec553c4
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
 	{
@@ -39,7 +42,10 @@ void AppClass::ProcessKeyboard(void)
 		m_pPalletL->SetModelMatrix(m4Pallet * glm::translate(vector3(0.0f,-fDelta, 0.0f)));
 		if (m_pPalletL->IsColliding(m_pBoxB))
 			m_pPalletL->SetModelMatrix(m4Pallet);
+<<<<<<< HEAD
 
+=======
+>>>>>>> bbf1112fc95df3dbcdefd2839e8b42d9fec553c4
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::O))
 	{
@@ -47,6 +53,7 @@ void AppClass::ProcessKeyboard(void)
 		m_pPalletR->SetModelMatrix(m4Pallet * glm::translate(vector3(0.0f, fDelta, 0.0f)));
 		if (m_pPalletR->IsColliding(m_pBoxT))
 			m_pPalletR->SetModelMatrix(m4Pallet);
+<<<<<<< HEAD
 
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::L))
@@ -55,11 +62,19 @@ void AppClass::ProcessKeyboard(void)
 		//m_v3Rotation = vector3(0.0f, 0.0f, 0.0f);
 		//m_m4Orientation = IDENTITY_M4;
 
+=======
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::L))
+	{
+>>>>>>> bbf1112fc95df3dbcdefd2839e8b42d9fec553c4
 		matrix4 m4Pallet = m_pPalletR->GetModelMatrix();
 		m_pPalletR->SetModelMatrix(m4Pallet * glm::translate(vector3(0.0f, -fDelta, 0.0f)));
 		if (m_pPalletR->IsColliding(m_pBoxB))
 			m_pPalletR->SetModelMatrix(m4Pallet);
+<<<<<<< HEAD
 
+=======
+>>>>>>> bbf1112fc95df3dbcdefd2839e8b42d9fec553c4
 	}
 #pragma endregion
 

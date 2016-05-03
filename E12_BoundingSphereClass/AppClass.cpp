@@ -19,11 +19,19 @@ void AppClass::InitVariables(void)
 	m_pMeshMngr->LoadModel("Minecraft\\Steve.obj", "Steve");
 	m_pMeshMngr->LoadModel("Minecraft\\Creeper.obj", "Creeper");
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 	m_pBox1 = new MyBoundingCubeClass(m_pMeshMngr->GetVertexList("Steve"));
 	m_pBox2 = new MyBoundingCubeClass(m_pMeshMngr->GetVertexList("Creeper"));
 =======
 >>>>>>> 8f580f7f9fede253430f22e409d3eac4ead431c5
+=======
+=======
+
+	m_pBox1 = new MyBoundingCubeClass(m_pMeshMngr->GetVertexList("Steve"));
+	m_pBox2 = new MyBoundingCubeClass(m_pMeshMngr->GetVertexList("Creeper"));
+>>>>>>> dcacc1e804d49ec9acff5eee2668064d6adc3e8d
+>>>>>>> bbf1112fc95df3dbcdefd2839e8b42d9fec553c4
 }
 
 void AppClass::Update(void)
@@ -45,6 +53,10 @@ void AppClass::Update(void)
 	m_pMeshMngr->SetModelMatrix(glm::translate(m_v3O2), "Creeper");
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> bbf1112fc95df3dbcdefd2839e8b42d9fec553c4
 	m_pBox1->SetModelMatrix(m_pMeshMngr->GetModelMatrix("Steve"));
 	m_pBox2->SetModelMatrix(m_pMeshMngr->GetModelMatrix("Creeper"));
 
@@ -67,8 +79,12 @@ void AppClass::Update(void)
 			glm::scale(vector3(m_pBox2->GetRadius()) * 2.0f), REGREEN, WIRE);
 	}
 	
+<<<<<<< HEAD
 =======
 >>>>>>> 8f580f7f9fede253430f22e409d3eac4ead431c5
+=======
+>>>>>>> dcacc1e804d49ec9acff5eee2668064d6adc3e8d
+>>>>>>> bbf1112fc95df3dbcdefd2839e8b42d9fec553c4
 	//Adds all loaded instance to the render list
 	m_pMeshMngr->AddInstanceToRenderList("ALL");
 
@@ -90,6 +106,10 @@ void AppClass::Update(void)
 	//Indicate the FPS
 	int nFPS = m_pSystem->GetFPS();
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> bbf1112fc95df3dbcdefd2839e8b42d9fec553c4
 
 	vector3 v3Center_1_Golbal = vector3(m_m4Steve * vector4(m_v3Center1, 1.0f));
 	vector3 v3Center_2_Golbal = vector3(m_m4Creeper * vector4(m_v3Center2, 1.0f));
@@ -125,8 +145,12 @@ void AppClass::Update(void)
 
 	m_pMeshMngr->PrintLine("");
 
+<<<<<<< HEAD
 =======
 >>>>>>> 8f580f7f9fede253430f22e409d3eac4ead431c5
+=======
+>>>>>>> dcacc1e804d49ec9acff5eee2668064d6adc3e8d
+>>>>>>> bbf1112fc95df3dbcdefd2839e8b42d9fec553c4
 	//print info into the console
 	printf("FPS: %d            \r", nFPS);//print the Frames per Second
 	//Print info on the screen
@@ -149,6 +173,10 @@ void AppClass::Display(void)
 void AppClass::Release(void)
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> bbf1112fc95df3dbcdefd2839e8b42d9fec553c4
 	if (m_pBox1 != nullptr)
 	{
 		delete m_pBox1;
@@ -161,7 +189,11 @@ void AppClass::Release(void)
 		m_pBox2 = nullptr;
 
 	}
+<<<<<<< HEAD
 =======
 >>>>>>> 8f580f7f9fede253430f22e409d3eac4ead431c5
+=======
+>>>>>>> dcacc1e804d49ec9acff5eee2668064d6adc3e8d
+>>>>>>> bbf1112fc95df3dbcdefd2839e8b42d9fec553c4
 	super::Release(); //release the memory of the inherited fields
 }
